@@ -57,6 +57,7 @@ while True:
     resized_img = cv2.resize(frame, (IMAGE_WIDTH, IMAGE_HEIGHT))
     (status, encoded_img) = cv2.imencode('.jpg', resized_img, [int(cv2.IMWRITE_JPEG_QUALITY), IMAGE_QUALITY])
 
+    time.sleep(1)
     try:
         soc.sendall(encoded_img)
     except socket.error as e:
